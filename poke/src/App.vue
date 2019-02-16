@@ -1,8 +1,19 @@
 <template>
   <div id="app">
+    <div>
+      <button @click="read">Read</button>
+    </div>
+    <div>
+      <button @click="poke">Poke</button>
+    </div>
     <h1>{{pokes}} Pokes</h1>
-    <button @click="read">Read</button>
-    <button @click="poke">Poke</button>
+    <div>
+      <button @click="read2">Read2</button>
+    </div>
+    <div>
+      <input v-model="manualPoke"><br>
+      <button @click="poke2">set poke = {{manualPoke}}</button>
+    </div>
     <div>{{poking ? 'poking...' : ''}}</div>
   </div>
 </template>
@@ -12,20 +23,20 @@ import Web3 from 'Web3'
 
 const pokeArtifacts = require('../../build/contracts/Sample.json')
 
+
 if (global.ethereum) {
   global.web3 = new Web3(global.ethereum)
 } else if (global.web3) {
   global.web3 = new Web3(global.web3.currentProvider)
 }
 
-import { patchProvider } from './assets/patchProvider';
-patchProvider(global.web3);
 
 export default {
   name: 'App',
   data() {
     return {
       poking: false,
+      manualPoke: 0,
       pokes: 0,
       acount: null
     }
@@ -57,10 +68,23 @@ export default {
         this.poking = false
       }
     },
-    read () {
-      global.contract.methods.getPokes.call().then((pokes) => {
-        this.pokes = pokes
-      })
+    async poke2 () {
+      this.poking = true
+      try {
+        var tx = await global.contract.methods.poke2(this.manualPoke).send({
+          from: this.account
+        })
+        this.poking = false
+        await this.read()
+      } catch(error) {
+        this.poking = false
+      }
+    },
+    async read () {
+      this.pokes = await global.contract.methods.getPokes.call()
+    },
+    async read2 () {
+      this.pokes = await global.contract.methods.getPokes2('1').call()
     }
   }
 }

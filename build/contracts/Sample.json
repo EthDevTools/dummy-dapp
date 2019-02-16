@@ -47,6 +47,21 @@
       "signature": "0x18178358"
     },
     {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "p",
+          "type": "uint256"
+        }
+      ],
+      "name": "poke2",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function",
+      "signature": "0x839f093c"
+    },
+    {
       "constant": true,
       "inputs": [],
       "name": "getPokes",
@@ -60,22 +75,42 @@
       "stateMutability": "view",
       "type": "function",
       "signature": "0xa19e6fa7"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "p",
+          "type": "uint256"
+        }
+      ],
+      "name": "getPokes2",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function",
+      "signature": "0xac428442"
     }
   ],
-  "bytecode": "0x608060405234801561001057600080fd5b5061014b806100206000396000f3fe608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063181783581461005c5780638ac7330514610073578063a19e6fa71461009e575b600080fd5b34801561006857600080fd5b506100716100c9565b005b34801561007f57600080fd5b50610088610110565b6040518082815260200191505060405180910390f35b3480156100aa57600080fd5b506100b3610116565b6040518082815260200191505060405180910390f35b6001600054016000819055507fc2c24f29eda7b97be3182bcc7c0058a4e9f5ea6455e0f434ec01efecf02388026000546040518082815260200191505060405180910390a1565b60005481565b6000805490509056fea165627a7a72305820216c327be341b6a0ccd01628ca2f90d82b7a2f5d8616249b7189eb5c53254ebd0029",
-  "deployedBytecode": "0x608060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063181783581461005c5780638ac7330514610073578063a19e6fa71461009e575b600080fd5b34801561006857600080fd5b506100716100c9565b005b34801561007f57600080fd5b50610088610110565b6040518082815260200191505060405180910390f35b3480156100aa57600080fd5b506100b3610116565b6040518082815260200191505060405180910390f35b6001600054016000819055507fc2c24f29eda7b97be3182bcc7c0058a4e9f5ea6455e0f434ec01efecf02388026000546040518082815260200191505060405180910390a1565b60005481565b6000805490509056fea165627a7a72305820216c327be341b6a0ccd01628ca2f90d82b7a2f5d8616249b7189eb5c53254ebd0029",
-  "sourceMap": "78:266:1:-;;;100:23;8:9:-1;5:2;;;30:1;27;20:12;5:2;100:23:1;78:266;;;;;;",
-  "deployedSourceMap": "78:266:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;177:84;;8:9:-1;5:2;;;30:1;27;20:12;5:2;177:84:1;;;;;;129:17;;8:9:-1;5:2;;;30:1;27;20:12;5:2;129:17:1;;;;;;;;;;;;;;;;;;;;;;;267:75;;8:9:-1;5:2;;;30:1;27;20:12;5:2;267:75:1;;;;;;;;;;;;;;;;;;;;;;;177:84;226:1;218:5;;:9;210:5;:17;;;;242:12;248:5;;242:12;;;;;;;;;;;;;;;;;;177:84::o;129:17::-;;;;:::o;267:75::-;307:4;330:5;;323:12;;267:75;:::o",
-  "source": "pragma solidity ^0.5.0;\n\n/**\n * The Sample contract does this and that...\n */\ncontract Sample {\n    constructor() public {}\n\n    uint public pokes;\n\n    event Poked(uint);\n\n    function poke() public {\n        pokes = pokes + 1;\n        emit Poked(pokes);\n    }\n\n    function getPokes() public view returns(uint) {\n        return pokes;\n    }\n}\n",
+  "bytecode": "0x608060405234801561001057600080fd5b50610238806100206000396000f3fe60806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631817835814610072578063839f093c146100895780638ac73305146100c4578063a19e6fa7146100ef578063ac4284421461011a575b600080fd5b34801561007e57600080fd5b50610087610169565b005b34801561009557600080fd5b506100c2600480360360208110156100ac57600080fd5b81019080803590602001909291905050506101b0565b005b3480156100d057600080fd5b506100d96101f3565b6040518082815260200191505060405180910390f35b3480156100fb57600080fd5b506101046101f9565b6040518082815260200191505060405180910390f35b34801561012657600080fd5b506101536004803603602081101561013d57600080fd5b8101908080359060200190929190505050610202565b6040518082815260200191505060405180910390f35b6001600054016000819055507fc2c24f29eda7b97be3182bcc7c0058a4e9f5ea6455e0f434ec01efecf02388026000546040518082815260200191505060405180910390a1565b806000819055507fc2c24f29eda7b97be3182bcc7c0058a4e9f5ea6455e0f434ec01efecf02388026000546040518082815260200191505060405180910390a150565b60005481565b60008054905090565b600081905091905056fea165627a7a72305820e48c20487ab7bf0a116b79f6d7ac768a6a1b064c576c64cdf498fccf96834e080029",
+  "deployedBytecode": "0x60806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631817835814610072578063839f093c146100895780638ac73305146100c4578063a19e6fa7146100ef578063ac4284421461011a575b600080fd5b34801561007e57600080fd5b50610087610169565b005b34801561009557600080fd5b506100c2600480360360208110156100ac57600080fd5b81019080803590602001909291905050506101b0565b005b3480156100d057600080fd5b506100d96101f3565b6040518082815260200191505060405180910390f35b3480156100fb57600080fd5b506101046101f9565b6040518082815260200191505060405180910390f35b34801561012657600080fd5b506101536004803603602081101561013d57600080fd5b8101908080359060200190929190505050610202565b6040518082815260200191505060405180910390f35b6001600054016000819055507fc2c24f29eda7b97be3182bcc7c0058a4e9f5ea6455e0f434ec01efecf02388026000546040518082815260200191505060405180910390a1565b806000819055507fc2c24f29eda7b97be3182bcc7c0058a4e9f5ea6455e0f434ec01efecf02388026000546040518082815260200191505060405180910390a150565b60005481565b60008054905090565b600081905091905056fea165627a7a72305820e48c20487ab7bf0a116b79f6d7ac768a6a1b064c576c64cdf498fccf96834e080029",
+  "sourceMap": "78:443:1:-;;;100:23;8:9:-1;5:2;;;30:1;27;20:12;5:2;100:23:1;78:443;;;;;;",
+  "deployedSourceMap": "78:443:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;177:84;;8:9:-1;5:2;;;30:1;27;20:12;5:2;177:84:1;;;;;;267:83;;8:9:-1;5:2;;;30:1;27;20:12;5:2;267:83:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;267:83:1;;;;;;;;;;;;;;;;;;;;129:17;;8:9:-1;5:2;;;30:1;27;20:12;5:2;129:17:1;;;;;;;;;;;;;;;;;;;;;;;356:75;;8:9:-1;5:2;;;30:1;27;20:12;5:2;356:75:1;;;;;;;;;;;;;;;;;;;;;;;441:78;;8:9:-1;5:2;;;30:1;27;20:12;5:2;441:78:1;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;441:78:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;177:84;226:1;218:5;;:9;210:5;:17;;;;242:12;248:5;;242:12;;;;;;;;;;;;;;;;;;177:84::o;267:83::-;315:1;307:5;:9;;;;331:12;337:5;;331:12;;;;;;;;;;;;;;;;;;267:83;:::o;129:17::-;;;;:::o;356:75::-;396:4;419:5;;412:12;;356:75;:::o;441:78::-;488:4;511:1;504:8;;441:78;;;:::o",
+  "source": "pragma solidity ^0.5.0;\n\n/**\n * The Sample contract does this and that...\n */\ncontract Sample {\n    constructor() public {}\n\n    uint public pokes;\n\n    event Poked(uint);\n\n    function poke() public {\n        pokes = pokes + 1;\n        emit Poked(pokes);\n    }\n\n    function poke2(uint p) public {\n        pokes = p;\n        emit Poked(pokes);\n    }\n\n    function getPokes() public view returns(uint) {\n        return pokes;\n    }\n    \n    function getPokes2(uint p) public pure returns(uint) {\n        return p;\n    }\n}\n",
   "sourcePath": "/Users/billy/sol/eth-dev-tools/contracts/Sample.sol",
   "ast": {
     "absolutePath": "/Users/billy/sol/eth-dev-tools/contracts/Sample.sol",
     "exportedSymbols": {
       "Sample": [
-        91
+        115
       ]
     },
-    "id": 92,
+    "id": 116,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -95,9 +130,9 @@
         "contractKind": "contract",
         "documentation": "The Sample contract does this and that...",
         "fullyImplemented": true,
-        "id": 91,
+        "id": 115,
         "linearizedBaseContracts": [
-          91
+          115
         ],
         "name": "Sample",
         "nodeType": "ContractDefinition",
@@ -128,7 +163,7 @@
               "parameters": [],
               "src": "121:0:1"
             },
-            "scope": 91,
+            "scope": 115,
             "src": "100:23:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -139,7 +174,7 @@
             "id": 64,
             "name": "pokes",
             "nodeType": "VariableDeclaration",
-            "scope": 91,
+            "scope": 115,
             "src": "129:17:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -366,7 +401,7 @@
               "parameters": [],
               "src": "200:0:1"
             },
-            "scope": 91,
+            "scope": 115,
             "src": "177:84:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -374,55 +409,130 @@
           },
           {
             "body": {
-              "id": 89,
+              "id": 95,
               "nodeType": "Block",
-              "src": "313:29:1",
+              "src": "297:53:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 87,
-                    "name": "pokes",
-                    "nodeType": "Identifier",
-                    "overloadedDeclarations": [],
-                    "referencedDeclaration": 64,
-                    "src": "330:5:1",
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 87,
+                      "name": "pokes",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 64,
+                      "src": "307:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 88,
+                      "name": "p",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 84,
+                      "src": "315:1:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "307:9:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 86,
-                  "id": 88,
-                  "nodeType": "Return",
-                  "src": "323:12:1"
+                  "id": 90,
+                  "nodeType": "ExpressionStatement",
+                  "src": "307:9:1"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 92,
+                        "name": "pokes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 64,
+                        "src": "337:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 91,
+                      "name": "Poked",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 68,
+                      "src": "331:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 93,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "331:12:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 94,
+                  "nodeType": "EmitStatement",
+                  "src": "326:17:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 90,
+            "id": 96,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "getPokes",
+            "name": "poke2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 83,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "284:2:1"
-            },
-            "returnParameters": {
-              "id": 86,
+              "id": 85,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 85,
-                  "name": "",
+                  "id": 84,
+                  "name": "p",
                   "nodeType": "VariableDeclaration",
-                  "scope": 90,
-                  "src": "307:4:1",
+                  "scope": 96,
+                  "src": "282:6:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -430,10 +540,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 84,
+                    "id": 83,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "307:4:1",
+                    "src": "282:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -443,29 +553,220 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "306:6:1"
+              "src": "281:8:1"
             },
-            "scope": 91,
-            "src": "267:75:1",
+            "returnParameters": {
+              "id": 86,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "297:0:1"
+            },
+            "scope": 115,
+            "src": "267:83:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 103,
+              "nodeType": "Block",
+              "src": "402:29:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 101,
+                    "name": "pokes",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 64,
+                    "src": "419:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 100,
+                  "id": 102,
+                  "nodeType": "Return",
+                  "src": "412:12:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 104,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPokes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 97,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "373:2:1"
+            },
+            "returnParameters": {
+              "id": 100,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 99,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 104,
+                  "src": "396:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 98,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "396:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "395:6:1"
+            },
+            "scope": 115,
+            "src": "356:75:1",
             "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 113,
+              "nodeType": "Block",
+              "src": "494:25:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 111,
+                    "name": "p",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 106,
+                    "src": "511:1:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 110,
+                  "id": 112,
+                  "nodeType": "Return",
+                  "src": "504:8:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 114,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPokes2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 107,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 106,
+                  "name": "p",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "460:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 105,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "460:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "459:8:1"
+            },
+            "returnParameters": {
+              "id": 110,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 109,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "488:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 108,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "488:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "487:6:1"
+            },
+            "scope": 115,
+            "src": "441:78:1",
+            "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 92,
-        "src": "78:266:1"
+        "scope": 116,
+        "src": "78:443:1"
       }
     ],
-    "src": "0:345:1"
+    "src": "0:522:1"
   },
   "legacyAST": {
     "absolutePath": "/Users/billy/sol/eth-dev-tools/contracts/Sample.sol",
     "exportedSymbols": {
       "Sample": [
-        91
+        115
       ]
     },
-    "id": 92,
+    "id": 116,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -485,9 +786,9 @@
         "contractKind": "contract",
         "documentation": "The Sample contract does this and that...",
         "fullyImplemented": true,
-        "id": 91,
+        "id": 115,
         "linearizedBaseContracts": [
-          91
+          115
         ],
         "name": "Sample",
         "nodeType": "ContractDefinition",
@@ -518,7 +819,7 @@
               "parameters": [],
               "src": "121:0:1"
             },
-            "scope": 91,
+            "scope": 115,
             "src": "100:23:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -529,7 +830,7 @@
             "id": 64,
             "name": "pokes",
             "nodeType": "VariableDeclaration",
-            "scope": 91,
+            "scope": 115,
             "src": "129:17:1",
             "stateVariable": true,
             "storageLocation": "default",
@@ -756,7 +1057,7 @@
               "parameters": [],
               "src": "200:0:1"
             },
-            "scope": 91,
+            "scope": 115,
             "src": "177:84:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -764,55 +1065,130 @@
           },
           {
             "body": {
-              "id": 89,
+              "id": 95,
               "nodeType": "Block",
-              "src": "313:29:1",
+              "src": "297:53:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 87,
-                    "name": "pokes",
-                    "nodeType": "Identifier",
-                    "overloadedDeclarations": [],
-                    "referencedDeclaration": 64,
-                    "src": "330:5:1",
+                    "id": 89,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 87,
+                      "name": "pokes",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 64,
+                      "src": "307:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 88,
+                      "name": "p",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 84,
+                      "src": "315:1:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "307:9:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 86,
-                  "id": 88,
-                  "nodeType": "Return",
-                  "src": "323:12:1"
+                  "id": 90,
+                  "nodeType": "ExpressionStatement",
+                  "src": "307:9:1"
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 92,
+                        "name": "pokes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 64,
+                        "src": "337:5:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 91,
+                      "name": "Poked",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 68,
+                      "src": "331:5:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 93,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "331:12:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 94,
+                  "nodeType": "EmitStatement",
+                  "src": "326:17:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 90,
+            "id": 96,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "getPokes",
+            "name": "poke2",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 83,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "284:2:1"
-            },
-            "returnParameters": {
-              "id": 86,
+              "id": 85,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 85,
-                  "name": "",
+                  "id": 84,
+                  "name": "p",
                   "nodeType": "VariableDeclaration",
-                  "scope": 90,
-                  "src": "307:4:1",
+                  "scope": 96,
+                  "src": "282:6:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -820,10 +1196,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 84,
+                    "id": 83,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "307:4:1",
+                    "src": "282:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -833,20 +1209,211 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "306:6:1"
+              "src": "281:8:1"
             },
-            "scope": 91,
-            "src": "267:75:1",
+            "returnParameters": {
+              "id": 86,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "297:0:1"
+            },
+            "scope": 115,
+            "src": "267:83:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 103,
+              "nodeType": "Block",
+              "src": "402:29:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 101,
+                    "name": "pokes",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 64,
+                    "src": "419:5:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 100,
+                  "id": 102,
+                  "nodeType": "Return",
+                  "src": "412:12:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 104,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPokes",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 97,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "373:2:1"
+            },
+            "returnParameters": {
+              "id": 100,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 99,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 104,
+                  "src": "396:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 98,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "396:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "395:6:1"
+            },
+            "scope": 115,
+            "src": "356:75:1",
             "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 113,
+              "nodeType": "Block",
+              "src": "494:25:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 111,
+                    "name": "p",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 106,
+                    "src": "511:1:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 110,
+                  "id": 112,
+                  "nodeType": "Return",
+                  "src": "504:8:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 114,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPokes2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 107,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 106,
+                  "name": "p",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "460:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 105,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "460:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "459:8:1"
+            },
+            "returnParameters": {
+              "id": 110,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 109,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "488:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 108,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "488:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "487:6:1"
+            },
+            "scope": 115,
+            "src": "441:78:1",
+            "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 92,
-        "src": "78:266:1"
+        "scope": 116,
+        "src": "78:443:1"
       }
     ],
-    "src": "0:345:1"
+    "src": "0:522:1"
   },
   "compiler": {
     "name": "solc",
@@ -856,8 +1423,8 @@
     "4": {
       "events": {},
       "links": {},
-      "address": "0x8289806390306719CaA8D03fe543D79728513303",
-      "transactionHash": "0xb10f72cb68e1da473cf7e497a543e0786133c8da2277e511601e132ee4dfaab9"
+      "address": "0x408F4B8f951F03100a522f63b43765456391972F",
+      "transactionHash": "0x7ffa8cd9a1563bb55e3bd16b0af5acd814b55f81814ea9a922449b03144e81ee"
     },
     "4447": {
       "events": {},
@@ -867,7 +1434,7 @@
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-02-16T00:28:37.985Z",
+  "updatedAt": "2019-02-16T05:24:22.701Z",
   "devdoc": {
     "methods": {}
   },

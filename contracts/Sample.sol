@@ -15,7 +15,16 @@ contract Sample {
         emit Poked(pokes);
     }
 
+    function poke2(uint p) public {
+        pokes = p;
+        emit Poked(pokes);
+    }
+
     function getPokes() public view returns(uint) {
         return pokes;
+    }
+    
+    function getPokes2(uint p) public pure returns(uint) {
+        return p;
     }
 }
