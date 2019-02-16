@@ -1989,6 +1989,11 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+date-fns@^1.30.1:
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
+  integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -7144,6 +7149,11 @@ vue-hot-reload-api@^2.2.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.2.tgz#1fcc1495effe08a790909b46bf7b5c4cfeb6f21b"
   integrity sha512-NpznMQoe/DzMG7nJjPkJKT7FdEn9xXfnntG7POfTmqnSaza97ylaBf1luZDh4IgV+vgUoR//id5pf8Ru+Ym+0g==
+
+vue-json-pretty@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/vue-json-pretty/-/vue-json-pretty-1.4.1.tgz#11599cc8f0beaaf2ba1653010535a5b6071867f9"
+  integrity sha512-EYLyhTb21unHr91U2W9Bo4EWA2TA67uVmRx024f8UBZVOqCkddSV4IBALzy24h+yo+XzQg6yTYWe+rbcxqXokQ==
 
 vue-loader@^13.3.0:
   version "13.7.3"

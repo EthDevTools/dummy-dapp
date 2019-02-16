@@ -1,25 +1,20 @@
 <template>
-  <div id="app">
-    <div>
-      <button @click="read">Read</button>
-    </div>
-    <div>
-      <button @click="poke">Poke</button>
-    </div>
-    <h1>{{pokes}} Pokes</h1>
-    <div>
+  <div id="app"><button @click="read">Read</button><button @click="poke">Poke</button>{{pokes}} Pokes
       <button @click="read2">Read2</button>
-    </div>
-    <div>
-      <input v-model="manualPoke"><br>
+      <input v-model="manualPoke">
       <button @click="poke2">set poke = {{manualPoke}}</button>
-    </div>
-    <div>{{poking ? 'poking...' : ''}}</div>
+    {{poking ? 'poking...' : ''}}
+    <logs :logs="logs" :results="results" />
+    <!-- <div :key="log" v-for="log in logs">
+      {{log}}
+    </div> -->
   </div>
 </template>
 
 <script>
 import Web3 from 'Web3'
+import Logs from '@/components/Logs'
+var sparkles = require('sparkles')(); // make sure to call the function
 
 const pokeArtifacts = require('../../build/contracts/Sample.json')
 
@@ -33,15 +28,33 @@ if (global.ethereum) {
 
 export default {
   name: 'App',
+  components: {
+    Logs
+  },
   data() {
     return {
       poking: false,
       manualPoke: 0,
       pokes: 0,
-      acount: null
+      acount: null,
+      logs: [],
+      results: {}
+    }
+  },
+  computed: {
+    headers () {
+      return this.logs.length ? Object.keys(this.logs[0]) : []
     }
   },
   async mounted () {
+    sparkles.on('new-log', message => {
+      // console.log('new log', message.logMessage)
+      this.logs.push(message.logMessage)
+    });
+    sparkles.on('new-result', message => {
+      // console.log('new result', message.logResult)
+      this.$set(this.results, message.logResult.id, message.logResult);
+    });
     if (global.ethereum) {
       await global.ethereum.enable()
     }
@@ -92,11 +105,18 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
+
+.flex {
+   display: flex;
+ }
+.col {
+  width: 25%;
+}
+ div{
+    /* border: 1px solid black; */
+ }
 </style>
