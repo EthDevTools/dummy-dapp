@@ -2,7 +2,7 @@
 const abiDecoder = require('abi-decoder');
 var sparkles = require('sparkles')(); // make sure to call the function
 import { inspect } from 'util'
-
+import BigNumber from 'bignumber.js'
 const processMethod = {
   eth_accounts: args => {
     return {
@@ -17,7 +17,7 @@ const processMethod = {
     const decodedInput = abiDecoder.decodeMethod(methodSig);
     return {
       to: contractAddress,
-      name: decodedInput.name,
+      name: decodedInput.name + '(' + decodedInput.params.map(p => p.type).join(',') + ')',
       params: decodedInput.params.length ? decodedInput.params : null
     }
   },
@@ -36,7 +36,7 @@ const processMethod = {
     return {
       to: contractAddress,
       name: decodedInput.name,
-      params: decodedInput.params
+      params: decodedInput.params.length ? decodedInput.params : null
     }
   },
   eth_getTransactionReceipt: args => {
@@ -65,12 +65,40 @@ const processResult = {
     }
   },
   eth_call: (args, results) => {
-    let method = abiDecoder.getABIs().find((m) => m.signature === args[1][0].data)
+    let method = abiDecoder.getABIs().find((m) => m.signature === args[1][0].data.slice(0, 10))
+    console.log(abiDecoder.getABIs().map(m => m.name + '-' + m.signature))
+    console.log(args)
     if (method) {
+      console.log('method', method)
       results = web3.eth.abi.decodeParameters(method.outputs, results.join(''))
+      console.log(results)
     }
     return {
       params: results
+    }
+  },
+  eth_getTransactionReceipt: (args, results) => {
+    if (results.length && results[0] && results[0].logs) {
+      const decodedLogs = abiDecoder.decodeLogs(results[0].logs);
+      results[0].logsDecoded = decodedLogs
+    }
+    return {
+      params: results.length ? results[0] : null
+    }
+  },
+  eth_gasPrice: (args, results) => {
+    let cost = new BigNumber(results[0], 16)
+    let gasResult = {}
+    gasResult.wei = cost.toString(10)
+    gasResult.eth = cost.div(1e18).toString(10)
+    gasResult.original = results[0]
+    return {
+      params: gasResult
+    }
+  },
+  eth_sendTransaction: (args, results) => {
+    return {
+      params: {tx: results[0]}
     }
   },
   default: (args, results, method) => {

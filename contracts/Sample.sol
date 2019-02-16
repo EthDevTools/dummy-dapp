@@ -8,7 +8,7 @@ contract Sample {
 
     uint public pokes;
 
-    event Poked(uint);
+    event Poked(uint pppp);
 
     function poke() public {
         pokes = pokes + 1;
@@ -20,11 +20,11 @@ contract Sample {
         emit Poked(pokes);
     }
 
-    function getPokes() public view returns(uint) {
+    function getPokes() public view returns(uint ppp) {
         return pokes;
     }
     
-    function getPokes2(uint p) public pure returns(uint) {
+    function getPokes2(uint p) public pure returns(uint pp) {
         return p;
     }
 }

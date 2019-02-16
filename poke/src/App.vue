@@ -104,19 +104,31 @@ export default {
 </script>
 
 <style>
+.pointer {
+  cursor: pointer;
+}
+.red {
+  color: red;
+}
 #app {
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.col {
+  width:25%;
+}
 .flex {
    display: flex;
  }
-.col {
-  width: 25%;
-}
  div{
     /* border: 1px solid black; */
+ }
+ .mx2 {
+   margin-left: 2em;
+   margin-right: 2em;
+ }
+ .m1 {
+   margin:0em 1em 1em 0em;
  }
 </style>
