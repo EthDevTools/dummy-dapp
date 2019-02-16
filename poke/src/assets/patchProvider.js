@@ -16,6 +16,9 @@ const processMethod = {
     const decodedInput = abiDecoder.decodeMethod(methodSig);
     return `eth_sendTransactions, address: ${contractAddress}, method: ${decodedInput.name}, params: ${JSON.stringify(decodedInput.params)}`;
   },
+  eth_getTransactionReceipt: args => {
+    return `eth_getTransactionReceipt, id: ${args[1][0]}`;
+  },
 }
 
 export const patchProvider = web3 => {
