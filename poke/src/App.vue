@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { patchWeb3 } from './assets/patchWeb3'
 import Web3 from 'Web3'
 
 const pokeArtifacts = require('../../build/contracts/Sample.json')
@@ -19,6 +18,8 @@ if (global.ethereum) {
   global.web3 = new Web3(global.web3.currentProvider)
 }
 
+import { patchProvider } from './assets/patchProvider';
+patchProvider(global.web3);
 
 export default {
   name: 'App',
@@ -41,28 +42,22 @@ export default {
       pokeArtifacts.abi,
       pokeArtifacts.networks[4].address
     )
-    global.web3 = patchWeb3(global.web3)
     await this.read()
   },
   methods: {
     async poke () {
-      console.log('poke')
       this.poking = true
       try {
         var tx = await global.contract.methods.poke.send({
           from: this.account
         })
         this.poking = false
-        console.log({tx})
         await this.read()
       } catch(error) {
-        console.log(error)
         this.poking = false
       }
     },
     read () {
-      console.log('read')
-      console.log(global.contract.methods.methodFactory)
       global.contract.methods.getPokes.call().then((pokes) => {
         this.pokes = pokes
       })
