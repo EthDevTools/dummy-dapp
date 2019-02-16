@@ -9,6 +9,19 @@ export const patchWeb3 = web3 => {
   //   web3.eth.Contract.prototype._createTxObject = newCreateTxObject;
   // }
 
+  const _executeMethod = web3.eth.executeMethod
+  web3.eth.executeMethod = function () {
+    console.log('executeMethod')
+    return executeMethod
+  }
+
+
+  const _call = web3.eth.call
+  web3.eth.call = function () {
+    console.log('call')
+    return _call
+  }
+
 
   const _send = web3.eth.send
   web3.eth.send = function () {

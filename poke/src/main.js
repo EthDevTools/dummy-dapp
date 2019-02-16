@@ -2,8 +2,6 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import { patchWeb3 } from './assets/patchWeb3'
-global.web3 = patchWeb3(global.web3)
 
 Vue.config.productionTip = false
 
